@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather Forcast</title>
 
     <link rel="stylesheet" href="./assets/style.css">
 </head>
@@ -15,29 +15,35 @@
         <h1>Weather Dashboard</h1>
     </header>
     <main>
-        <div id="city-result">
+        <div id="srch-result">
             <div id="srch-section">
-                <h2><label for="city" placeholder="Enter a city's name...">Search for a City:</label></h2><br>
-                <input type="text" id="city-name">
-                <button id="srch-btn">Search</button>
+                <h2><label for="city">Search for a City:</label></h2><br>
+                <input type="text" id="input-city" placeholder="Enter a city's name...">
+                <button id="srch-btn">Search</button><br><br>
             </div>
             <hr>
             <div id="srched-history">
                 <!-- buttons for searched cities -->
             </div>
         </div>
-        <div id="result">
+        <div id="weather-result">
             <div id="today-weather">
-                <h3></h3>
+                <h3 id="city-name"></h3>
+                <div id="temp"></div><br>
+                <div id="wind"></div><br>
+                <div id="humidity"></div>
+            </div>
+            <div id="5-day-forcast">
 
             </div>
-            <div id="5-day-forcast"></div>
 
         </div>
     </main>
     <footer>
         <h4>Thank you for your visit!</h4>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
     <script src="./assets/script.js"></script>
 </body>
 
