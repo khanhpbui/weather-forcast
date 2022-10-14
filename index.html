@@ -5,42 +5,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Forcast</title>
-
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body>
     <header>
-        <h1>Weather Dashboard</h1>
+        <h1 class="text-center">Weather Dashboard</h1>
     </header>
-    <main>
-        <div id="srch-result">
+    <main class="row">
+        <div id="srch-result" class=".col-sm-3">
             <div id="srch-section">
-                <h2><label for="city">Search for a City:</label></h2><br>
+                <h3><label for="city">Search for a City:</label></h3><br>
                 <input type="text" id="input-city" placeholder="Enter a city's name...">
-                <button id="srch-btn">Search</button><br><br>
+                <button id="srch-btn" class="btn btn-lg">Search</button><br><br>
             </div>
             <hr>
             <div id="srched-history">
                 <!-- buttons for searched cities -->
             </div>
         </div>
-        <div id="weather-result">
+        <div id="weather-result" class=".col-lg-9">
             <div id="today-weather">
-                <h3 id="city-name"></h3>
+                <h4 id="city-name"></h4>
                 <div id="temp"></div><br>
                 <div id="wind"></div><br>
                 <div id="humidity"></div>
             </div>
-            <div id="5-day-forcast">
-
+            <h3>5 day forecast</h3>
+            <div id="5-day-forcast" class="">
             </div>
 
         </div>
     </main>
     <footer>
-        <h4>Thank you for your visit!</h4>
+        <h5>Thank you for your visit!</h5>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>

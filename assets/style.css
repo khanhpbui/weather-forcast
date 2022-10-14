@@ -1,0 +1,48 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 1rem;
+
+}
+button {
+    margin: .5rem;
+    border-radius: 5px;
+    border-color: rgba(252, 201, 155, 0.769);
+    background-color:  rgba(252, 201, 155, 0.769);
+}
+#srch-btn {
+    color: white;
+    background-color: rgba(255, 68, 0, 0.769);
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 1000;
+    color:white;
+    background-image: linear-gradient(to bottom right, red, #f3f303);
+    margin: 1rem;
+    border-radius: 10px;
+}
+h3 {
+    font-size: 2rem;
+    text-align: center;
+    border-color: red;
+    border-radius: 5px;
+    background-color: rgb(249, 249, 10);
+    
+    margin: 1rem;
+}
+#srched-history {
+    display: flex;
+    flex-direction: column;
+}
+#today-weather {
+    border-color: black;
+    
+    border-style: solid;
+}
+.day {
+    border-radius: 5px;
+    padding: 1rem;
+    
+    background-image: linear-gradient(to bottom, rgb(245, 153, 153), #f0f096);
+}

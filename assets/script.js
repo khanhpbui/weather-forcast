@@ -9,20 +9,25 @@ var forcastFiveDayEl = $('#5-day-forcast');
 var srchedHistory = [];
 var srchedHistoryEl = $('#srched-history');
 var cityBtnEl = $('.city-btn');
+var historyBtn = $('.srched-cities-btn');
 
 
 
 function srchCity(event) {
     event.preventDefault();
+    init();
     var cityNameVal = cityInputEl.val();
     srchGeocoding(cityNameVal);
-    srchedHistory.push(cityNameVal);
-    localStorage.setItem('city', JSON.stringify(srchedHistory));
+    // only add the button when clicked, not touching local storage
+    if (cityNameVal !== '') {
+        var srchedCitiesBtn = $('<button>').addClass('srched-cities-btn').attr('value', cityNameVal);
+        srchedCitiesBtn.text(cityNameVal);
+        srchedHistoryEl.append(srchedCitiesBtn);
+    }
 }
 // Get lat and lon values
 function srchGeocoding(query) {
     var requestGeocodingUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=' + query + ',,US&limit=1&appid=3ec99d50e44982bb832a15d753e79593';
-
     fetch(requestGeocodingUrl)
         .then(function (response) {
             if (!response.ok) {
@@ -36,6 +41,8 @@ function srchGeocoding(query) {
             if (geocodingData.length === 0) {
                 alert('Please enter a valid city');
             };
+            srchedHistory.push(geocodingData[0].name);
+            localStorage.setItem('city', JSON.stringify(srchedHistory));
             getCurrentWeather(lat, lon);
             getForcastWeather(lat, lon);
         })
@@ -55,6 +62,9 @@ function getCurrentWeather(lat, lon) {
         })
         .then(function (currentWeatherData) {
             console.log(currentWeatherData)
+
+
+
             var icon = '<img src="http://openweathermap.org/img/wn/' + currentWeatherData.weather[0].icon + '.png" alt="weather icon">';
             cityNameEl.text(currentWeatherData.name + ' (' + moment().format('M/D/YYYY') + ') ');
             cityNameEl.append(icon)
@@ -75,6 +85,7 @@ function getForcastWeather(lat, lon) {
             return response.json();
         })
         .then(function (weatherData) {
+            forcastFiveDayEl.empty();
             for (var i = 0; i < 5; i++) {
                 var cityName = weatherData.city.name;
                 var forcastIndex = i * 8 + 3;
@@ -84,31 +95,47 @@ function getForcastWeather(lat, lon) {
                 var temp = 'Temp: ' + weatherData.list[forcastIndex].main.temp + '°F<br><br>';
                 var humidity = 'Humidity: ' + weatherData.list[forcastIndex].main.humidity + ' %';
                 var wind = 'Wind: ' + weatherData.list[forcastIndex].wind.speed + ' MPH<br><br>';
-                eachDay.html('<h3>' + cityName + ' (' + date + ') ' + icon + '</h3>');
+                eachDay.html('<h4>' + cityName + ' (' + date + ') ' + icon + '</h4>');
                 eachDay.append(temp, wind, humidity);
                 forcastFiveDayEl.append(eachDay);
             }
         });
 };
 
+
+
+
+console.log(srchedHistory)
 function init() {
     var localCities = JSON.parse(localStorage.getItem('city'));
     if (localCities !== null) {
         srchedHistory = localCities;
         console.log(srchedHistory)
-        srchedHistory.forEach((item, index) => {
-            var srchedCitiesBtn = $('<button>').addClass('srched-cities').attr('value', srchedHistory[index]);
-            srchedCitiesBtn.text(srchedHistory[index]);
-            srchedHistoryEl.append(srchedCitiesBtn);
-            //srchedCitiesBtn.click(srchCity);
-        })
+    };
+}
+srchedHistory.forEach((item, index) => {
+    if (item !== '') {
+        var srchedCitiesBtn = $('<button>').addClass('srched-cities-btn').attr('value', srchedHistory[index]);
+        srchedCitiesBtn.text(srchedHistory[index]);
+        srchedHistoryEl.append(srchedCitiesBtn);
     }
+});
 
+function updateCityVal(event) {
+    event.preventDefault();
 
+    srchGeocoding(this.value);
 }
 
-
-
+$('body').on('click', 'button.srched-cities-btn', updateCityVal);
 srchBtnEl.click(srchCity);
 
 init();
+// page reload , when it loads for the first time
+srchedHistory.forEach((item, index) => {
+    if (item !== '') {
+        var srchedCitiesBtn = $('<button>').addClass('srched-cities-btn').attr('value', srchedHistory[index]);
+        srchedCitiesBtn.text(srchedHistory[index]);
+        srchedHistoryEl.append(srchedCitiesBtn);
+    }
+});
