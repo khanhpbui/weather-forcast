@@ -89,7 +89,7 @@ function getForcastWeather(lat, lon) {
             for (var i = 0; i < 5; i++) {
                 var cityName = weatherData.city.name;
                 var forcastIndex = i * 8 + 3;
-                var eachDay = $('<div>').addClass('day').attr('id', forcastIndex);
+                var eachDay = $('<div>').addClass('day col-sm-2').attr('id', forcastIndex);
                 var date = moment(weatherData.list[forcastIndex].dt_txt, 'YYYY-MM-DD HH:mm:ss').format('M/D/YYYY');
                 var icon = '<img src="http://openweathermap.org/img/wn/' + weatherData.list[forcastIndex].weather[0].icon + '.png" alt="weather icon">';
                 var temp = 'Temp: ' + weatherData.list[forcastIndex].main.temp + '°F<br><br>';
@@ -101,8 +101,6 @@ function getForcastWeather(lat, lon) {
             }
         });
 };
-
-
 
 
 console.log(srchedHistory)
