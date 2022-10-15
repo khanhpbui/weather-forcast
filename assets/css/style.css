@@ -1,13 +1,14 @@
 * {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 1rem;
+    
 
 }
 button {
     margin: .5rem;
     border-radius: 5px;
     border-color: rgba(252, 201, 155, 0.769);
-    background-color:  rgba(252, 201, 155, 0.769);
+    background-color:  rgba(244, 198, 159, 0.769);
 }
 #srch-btn {
     color: white;
@@ -15,21 +16,32 @@ button {
 }
 
 h1 {
+    padding: 3rem;
     font-size: 4rem;
     font-weight: 1000;
     color:white;
     background-image: linear-gradient(to bottom right, red, #f3f303);
-    margin: 1rem;
-    border-radius: 10px;
+    margin: 3rem;
+    border-radius: 20px;
+    border: 3px solid rgb(247, 202, 197);
+    box-shadow: 15px 15px 30px rgb(206, 149, 109);
 }
 h3 {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    font-weight: bold;
     text-align: center;
-    border-color: red;
-    border-radius: 5px;
-    background-color: rgb(249, 249, 10);
-    
+    border: solid;
+    border-color: rgba(251, 182, 87, 0.767);
+    border-width: 3px;
+    border-radius: 20px;
+    background-color: rgb(250, 250, 31);
+    box-shadow: 15px 15px 30px rgb(245, 210, 113);
     margin: 1rem;
+    padding: 1.5rem;
+}
+h3#srch-label{
+    font-size: 1.9rem;
+    padding: .5rem;
 }
 #srched-history {
     display: flex;
@@ -37,12 +49,13 @@ h3 {
 }
 #today-weather {
     border-color: black;
-    
+    margin-bottom: 3rem;
     border-style: solid;
+    border-width: 2px;
 }
 .day {
     border-radius: 5px;
-    padding: 3px;
+    padding: 15px;
     
     background-image: linear-gradient(to bottom, rgb(245, 153, 153), #f0f096);
 }

@@ -23,8 +23,8 @@ function srchCity(event) {
         var srchedCitiesBtn = $('<button>').addClass('srched-cities-btn').attr('value', cityNameVal);
         srchedCitiesBtn.text(cityNameVal);
         srchedHistoryEl.append(srchedCitiesBtn);
-    }
-}
+    };
+};
 // Get lat and lon values
 function srchGeocoding(query) {
     var requestGeocodingUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=' + query + ',,US&limit=1&appid=3ec99d50e44982bb832a15d753e79593';
@@ -62,18 +62,14 @@ function getCurrentWeather(lat, lon) {
         })
         .then(function (currentWeatherData) {
             console.log(currentWeatherData)
-
-
-
             var icon = '<img src="http://openweathermap.org/img/wn/' + currentWeatherData.weather[0].icon + '.png" alt="weather icon">';
             cityNameEl.text(currentWeatherData.name + ' (' + moment().format('M/D/YYYY') + ') ');
             cityNameEl.append(icon)
             tempEl.text('Temp: ' + currentWeatherData.main.temp + '°F');
             humidityEl.text('Humidity: ' + currentWeatherData.main.humidity + ' %');
             windEl.text('Wind: ' + currentWeatherData.wind.speed + ' MPH');
-        })
-
-}
+        });
+};
 // Forcast 5 days
 function getForcastWeather(lat, lon) {
     var requestForcastWeatherUrl = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&appid=3ec99d50e44982bb832a15d753e79593&units=imperial';
@@ -95,20 +91,17 @@ function getForcastWeather(lat, lon) {
                 var temp = 'Temp: ' + weatherData.list[forcastIndex].main.temp + '°F<br><br>';
                 var humidity = 'Humidity: ' + weatherData.list[forcastIndex].main.humidity + ' %';
                 var wind = 'Wind: ' + weatherData.list[forcastIndex].wind.speed + ' MPH<br><br>';
-                eachDay.html('<h4>' + cityName + ' (' + date + ') ' + icon + '</h4>');
+                eachDay.html('<h4>' + cityName + ' ' + date + ' ' + icon + '</h4>');
                 eachDay.append(temp, wind, humidity);
                 forcastFiveDayEl.append(eachDay);
             }
         });
 };
 
-
-console.log(srchedHistory)
 function init() {
     var localCities = JSON.parse(localStorage.getItem('city'));
     if (localCities !== null) {
         srchedHistory = localCities;
-        console.log(srchedHistory)
     };
 }
 srchedHistory.forEach((item, index) => {
@@ -121,9 +114,8 @@ srchedHistory.forEach((item, index) => {
 
 function updateCityVal(event) {
     event.preventDefault();
-
     srchGeocoding(this.value);
-}
+};
 
 $('body').on('click', 'button.srched-cities-btn', updateCityVal);
 srchBtnEl.click(srchCity);
