@@ -91,7 +91,7 @@ function getForcastWeather(lat, lon) {
                 var temp = 'Temp: ' + weatherData.list[forcastIndex].main.temp + '°F<br><br>';
                 var humidity = 'Humidity: ' + weatherData.list[forcastIndex].main.humidity + ' %';
                 var wind = 'Wind: ' + weatherData.list[forcastIndex].wind.speed + ' MPH<br><br>';
-                eachDay.html('<h4>' + cityName + ' ' + date + ' ' + icon + '</h4>');
+                eachDay.html('<h4>' + date + ' ' + icon + '</h4>');
                 eachDay.append(temp, wind, humidity);
                 forcastFiveDayEl.append(eachDay);
             }
