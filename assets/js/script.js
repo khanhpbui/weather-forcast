@@ -27,7 +27,7 @@ function srchCity(event) {
 };
 // Get lat and lon values
 function srchGeocoding(query) {
-    var requestGeocodingUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=' + query + ',,US&limit=1&appid=3ec99d50e44982bb832a15d753e79593';
+    var requestGeocodingUrl = 'https://api.openweathermap.org/geo/1.0/direct?q=' + query + ',,US&limit=1&appid=3ec99d50e44982bb832a15d753e79593';
     fetch(requestGeocodingUrl)
         .then(function (response) {
             if (!response.ok) {
@@ -62,7 +62,7 @@ function getCurrentWeather(lat, lon) {
         })
         .then(function (currentWeatherData) {
             console.log(currentWeatherData)
-            var icon = '<img src="http://openweathermap.org/img/wn/' + currentWeatherData.weather[0].icon + '.png" alt="weather icon">';
+            var icon = '<img src="https://openweathermap.org/img/wn/' + currentWeatherData.weather[0].icon + '.png" alt="weather icon">';
             cityNameEl.text(currentWeatherData.name + ' (' + moment().format('M/D/YYYY') + ') ');
             cityNameEl.append(icon)
             tempEl.text('Temp: ' + currentWeatherData.main.temp + '°F');
@@ -87,7 +87,7 @@ function getForcastWeather(lat, lon) {
                 var forcastIndex = i * 8 + 3;
                 var eachDay = $('<div>').addClass('day col-sm-2').attr('id', forcastIndex);
                 var date = moment(weatherData.list[forcastIndex].dt_txt, 'YYYY-MM-DD HH:mm:ss').format('M/D/YYYY');
-                var icon = '<img src="http://openweathermap.org/img/wn/' + weatherData.list[forcastIndex].weather[0].icon + '.png" alt="weather icon">';
+                var icon = '<img src="https://openweathermap.org/img/wn/' + weatherData.list[forcastIndex].weather[0].icon + '.png" alt="weather icon">';
                 var temp = 'Temp: ' + weatherData.list[forcastIndex].main.temp + '°F<br><br>';
                 var humidity = 'Humidity: ' + weatherData.list[forcastIndex].main.humidity + ' %';
                 var wind = 'Wind: ' + weatherData.list[forcastIndex].wind.speed + ' MPH<br><br>';
