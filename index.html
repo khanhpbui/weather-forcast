@@ -1,50 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Dashboard</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
 
-<body>
+  <body>
     <header>
-        <h1 class="text-center">Weather Dashboard</h1>
+      <h1 class="text-center">Weather Dashboard</h1>
     </header>
-    <main class="row">
-        <div id="srch-result" class="col-lg-3 col-md-3">
-            <div id="srch-section">
-                <h3 id="srch-label"><label for="city">Search for a City:</label></h3><br>
-                <input type="text" id="input-city" placeholder="Enter a city's name...">
-                <button id="srch-btn" class="btn btn-lg">Search</button><br><br>
-            </div>
-            <hr>
-            <div id="srched-history">
-                <!-- buttons for searched cities -->
-            </div>
+    <main class="row justify-content-evenly">
+      <div id="srch-result" class="col-lg-3 col-md-3">
+        <div id="srch-section">
+          <h3 id="srch-label"><label for="city">Search for a city:</label></h3>
+          <form class="d-flex justify-content-center align-items-center flex-wrap">
+            <input
+              type="text"
+              id="input-city"
+              placeholder="Enter a city's name..."
+            />
+            <button id="srch-btn" class="btn btn-lg">Search</button><br /><br />
+          </form>
         </div>
-        <div id="weather-result" class="col-lg-8 col-md-8">
-            <div id="today-weather">
-                <h4 id="city-name"></h4>
-                <div id="temp"></div><br>
-                <div id="wind"></div><br>
-                <div id="humidity"></div>
-            </div>
-            <h3 id="5-day-title">5 day forecast</h3>
-            <div id="5-day-forcast" class="row">
-            </div>
+        <hr />
+        <div id="srched-history">
+          <!-- buttons for searched cities -->
+        </div>
+      </div>
+      <div id="weather-result" class="col-lg-8 col-md-8">
+        <!-- today forecast -->
+        <div id="today-weather">
+          <h4 id="city-name"></h4>
+          <div id="temp"></div>
+          <br />
+          <div id="wind"></div>
+          <br />
+          <div id="humidity"></div>
+        </div>
+        <!-- 5 days forecast -->
+        <div id="five-day">
+          <h3>5 day forecast</h3>
 
+            <div id="five-day-forcast" class="row d-flex justify-content-center align-items-stretch flex-wrap"></div>
+
+         
         </div>
+      </div>
     </main>
     <footer>
-        <h5>Thank you for your visit!</h5>
+      <h5>Thank you for your visit!</h5>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
-</body>
-
+  </body>
 </html>

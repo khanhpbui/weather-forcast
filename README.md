@@ -11,7 +11,7 @@ N/A
 
 ## Usage
 
-![Alt text](./assets/Images/screenshot.png "Weather Forcast")
+![Alt text](./assets/img/screenshot.png "Weather Forcast")
 
 Link: https://khanhpbui.github.io/weather-forcast/
 
