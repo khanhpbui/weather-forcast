@@ -9,9 +9,9 @@
   --bg-black: rgba(7, 0, 11, 0.841);
 }
 body {
-  background-image: url("../img/bg.jpg");
+  background-image: url("../img/bg1.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  /* background-size: cover; */
 }
 main {
   justify-content: center;
@@ -25,14 +25,14 @@ main {
 input {
   color: black;
   padding: 1rem;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   margin: 1rem;
 }
 button.srched-cities-btn {
   margin: 1rem;
   padding: 0.5rem;
   width: 50%;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   background-color: transparent;
   border: solid 0.05rem white;
 }
@@ -114,19 +114,6 @@ footer {
   text-align: center;
 }
 
-@media screen and (max-width: 414px) {
-  /* h1.text-center {
-    padding: 0;
-    font-size: 3rem;
-    font-weight: 1000;
-    color: white;
-    background-image: linear-gradient(to bottom right, red, #f3f303);
-    margin: 0rem;
-    border-radius: 20px;
-    border: 3px solid rgb(247, 202, 197);
-    box-shadow: 15px 15px 30px rgb(206 149 109);
-  } */
-}
 
 @media screen and (max-width: 940px) {
   input#input-city {
@@ -135,24 +122,3 @@ footer {
 
   }
 }
-
-/* @media screen and (max-width: 1280px) {
-  div.day.col-sm-2 {
-    margin: 2px;
-    padding: 2px;
-    font-size: 0.95rem;
-  }
-  .row {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-    justify-content: center;
-  }
-  h4 {
-    font-size: 1.02rem;
-    font-weight: bold;
-  }
-} */
